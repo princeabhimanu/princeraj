@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+
+public class ActivitySelectionProblemGreedyAlgo {
+
+    public static void main(String[] args) {
+        int start[] = {10, 12, 20};
+        int finish[] = {20, 25, 30};
+        ArrayList<Integer> selectedActivities = new ArrayList<>();
+        int count = 1;
+        selectedActivities.add(0);
+        int currFinish = finish[0];
+        for (int i = 1; i < start.length; i++) {
+            if (start[i] >= currFinish) {
+                selectedActivities.add(i);
+                count++;
+                currFinish = finish[i];
+            }
+        }
+        System.out.println("Maximum number of activities = " + count);
+        System.out.print("Activities that can be performed are (indices): ");
+        for (int index : selectedActivities) {
+            System.out.print(index + " ");
+        }
+    }
+}
